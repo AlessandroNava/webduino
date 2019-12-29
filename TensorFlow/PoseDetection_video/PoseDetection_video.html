@@ -11,18 +11,18 @@ https://fustyles.github.io/webduino/TensorFlow/PoseDetection_video/PoseDetection
   <meta charset="utf-8">
   <meta name="robots" content="noindex">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.4"> </script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"> </script>  
 </head>
 <body>
 ScoreLimit
 <select id="scorelimit">
-<option value="0">0%</option>  
+<option value="0" selected>0%</option>  
 <option value="0.1">10%</option>
 <option value="0.2">20%</option>
 <option value="0.3">30%</option>
 <option value="0.4">40%</option>
-<option value="0.5" selected>50%</option>
+<option value="0.5">50%</option>
 <option value="0.6">60%</option>
 <option value="0.7">70%</option>
 <option value="0.8">80%</option>
@@ -47,6 +47,7 @@ ScoreLimit
   function ObjectDetect() {
     posenet.load().then(function(net) {
       Model = net;
+      console.log(Model);
       result.innerHTML = "";
       startvideo();
     }); 
@@ -79,13 +80,13 @@ ScoreLimit
     context.translate((canvas.width + video.width) / 2, 0);
     context.scale(-1, 1);
     context.drawImage(video, 0, 0, video.width, video.height);
-    context.setTransform(1, 0, 0, 1, 0, 0);    
-    await Model.estimatePoses(canvas, {flipHorizontal: false, decodingMethod: 'single-person'}).then(pose => {
-      //console.log(pose.score);
+    context.setTransform(1, 0, 0, 1, 0, 0);  
+    
+    await Model.estimateSinglePose(canvas, {flipHorizontal: false}).then(pose => {
+      //console.log(pose);
       //console.log(pose.keypoints);
       result.innerHTML = "";
       var scoreLimit = Number(document.getElementById("scorelimit").value);
-      pose = pose[0];
 
       if (pose.keypoints.length>0) {
         for (var i=0;i<pose.keypoints.length;i++) {

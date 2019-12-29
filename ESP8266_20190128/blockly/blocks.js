@@ -1,7 +1,7 @@
 Blockly.Blocks['esp8266_system'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ESP8266 System");
+        .appendField("MyFirmata");
     this.appendValueInput("url")
         .setCheck("String")
         .setAlign(Blockly.ALIGN_RIGHT)
@@ -28,7 +28,7 @@ Blockly.Blocks['esp8266_system'] = {
 Blockly.Blocks['esp8266_custom'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ESP8266 Custom"); 
+        .appendField("MyFirmata"); 
     this.appendValueInput("url")
         .setCheck("String")
         .setAlign(Blockly.ALIGN_RIGHT)
@@ -83,7 +83,7 @@ Blockly.Blocks['esp8266_custom'] = {
 Blockly.Blocks['esp8266_car'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ESP8266 Car (ESP32)");  
+        .appendField("MyFirmata Car");  
     this.appendValueInput("url")
         .setCheck("String")
         .setAlign(Blockly.ALIGN_RIGHT)
@@ -131,7 +131,7 @@ Blockly.Blocks['esp8266_car'] = {
 };
 
 Blockly.Blocks['esp8266_car_state'] = {
-  init: function () {    
+  init: function () {  
   this.appendDummyInput()
       .appendField(new Blockly.FieldDropdown([["FORWARD","F"], ["BACKWARD","B"], ["TURNLEFT","L"], ["TURNRIGHT","R"], ["STOP","S"]]), "state");    
   this.setInputsInline(true);
@@ -162,7 +162,7 @@ Blockly.Blocks['esp8266_cmd'] = {
         ["thingspeakread(request)","thingspeakread"],
         ["linenotify(token\,request)","linenotify"],
         ["car(pinL1\,pinL2\,pinR1\,pinR2\,L_speed\,R_speed\,Delay\,state)","car"],
-        ["i2cLcd(address\,gpioSDA\,gpioSCL\,text1\,text2\)","i2cLcd"]
+        ["i2cLcd(address\,gpioSDA\,gpioSCL\,text1\,text2\) or (address\,text1\,text2\)","i2cLcd"]
       ]), "cmd");
   this.setInputsInline(true);
   this.setOutput(true, null); 
@@ -173,7 +173,7 @@ Blockly.Blocks['esp8266_cmd'] = {
 Blockly.Blocks['esp8266_getresponse'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ESP8266 get response data");
+        .appendField("MyFirmata Get Response Data");
     this.setInputsInline(false);
     this.setOutput(true, null); 
     this.setColour(200);
@@ -183,7 +183,7 @@ Blockly.Blocks['esp8266_getresponse'] = {
 Blockly.Blocks['esp8266_clearresponse'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ESP8266 clear response data");
+        .appendField("MyFirmata Clear Response Data");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(60);

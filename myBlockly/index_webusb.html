@@ -7,7 +7,7 @@
 	var script_blockly = [
 		'https://blockly-demo.appspot.com/static/blockly_compressed.js',
 		'https://blockly-demo.appspot.com/static/blocks_compressed.js',
-		'https://blockly-demo.appspot.com/static/javascript_compressed.js',
+		'https://blockly-demo.appspot.com/static/javascript_compressed.js',		
 		'https://fustyles.github.io/webduino/myBlockly/toolbox.js',
 		'https://fustyles.github.io/webduino/myBlockly/WebUSB/demos/serial.js',
 		'https://fustyles.github.io/webduino/myBlockly/WebUSB/demos/arduino/arduino.js',
@@ -550,6 +550,11 @@ function exportHTML() {
     if (xml_text.indexOf("teachable")!=-1) {
       iframe_code += "\<script src='https://fustyles.github.io/webduino/myBlockly/DeepLearning/teachablemachineboilerplate.js'\>\<\/script>";
     }
+	  
+    //KNN-Classifier
+    if (xml_text.indexOf("knnclassifier")!=-1) {
+      iframe_code += "\<script src='https://fustyles.github.io/webduino/myBlockly/KnnClassifier/knnclassifier_video.js'\>\<\/script\>";
+    }		  
 	  
     iframe_code += "\<\/head\>\<body\>";
     //If WebUSB is used.

@@ -41,9 +41,22 @@
     document.getElementById('opacity').value = input_opacity;
   }	
   
+  function knn_classifier_train(input_class){
+    document.getElementById("Class").value=input_class;
+    document.getElementById("addExample").click();
+  }
+  
+  function knn_classifier_startdetect(input_check){
+    if (input_check=="1")
+      document.getElementById("startdetection").checked = true;
+    else if (input_check=="0")
+      document.getElementById("startdetection").checked = false;
+  }  
 
   window.knn_classifier_open = knn_classifier_open;
   window.knn_classifier_proportion = knn_classifier_proportion;
   window.knn_classifier_video = knn_classifier_video;
+  window.knn_classifier_train = knn_classifier_train;
+  window.knn_classifier_startdetect = knn_classifier_startdetect;  
 
 }(window, window.document));
